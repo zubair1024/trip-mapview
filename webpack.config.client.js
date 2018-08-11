@@ -4,6 +4,7 @@ const path = require("path");
 module.exports = {
   devtool: "inline-source-map",
   entry: [
+    "babel-polyfill",
     "react-hot-loader/patch",
     "webpack-dev-server/client?http://localhost:3001",
     "webpack/hot/only-dev-server",
