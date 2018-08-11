@@ -3,7 +3,7 @@ import { Map } from "./Map";
 
 const App = () => (
   <div>
-    <Map name="Zubair"/>
+    <Map/>
   </div>
 );
 

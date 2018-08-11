@@ -53,12 +53,11 @@ export class Map extends React.Component {
   render() {
     return (
       <div>
-        <section id="cd-google-map">
+        <div id="cd-google-map">
           <div id="google-container" />
           <div id="cd-zoom-in" />
           <div id="cd-zoom-out" />
-          <address>86-90 Paul Street, London, EC2A 4NE</address>
-        </section>
+        </div>
       </div>
     );
   }
@@ -67,7 +66,7 @@ export class Map extends React.Component {
     return new Promise(resolve => {
       $.ajax({
         url:
-          "https://carlo.razrlab.com/kiko/map/history/5b6c9225fdb5352c9a33a417?start=2018-08-10T19:53:50.000Z&end=2018-08-10T20:30:41.000Z",
+          "https://razrtrack.razrlab.com/kiko/map/history/5b1e82003dacb21138ca6bc2?start=2018-08-11T07:42:33.000Z&end=2018-08-11T08:24:07.000Z",
         success: res => {
           resolve(res);
         },
@@ -884,12 +883,12 @@ export class Map extends React.Component {
     var map_options = {
       center: new google.maps.LatLng($latitude, $longitude),
       zoom: $map_zoom,
-      panControl: false,
-      zoomControl: false,
-      mapTypeControl: false,
-      streetViewControl: false,
+      panControl: true,
+      zoomControl: true,
+      mapTypeControl: true,
+      streetViewControl: true,
       mapTypeId: google.maps.MapTypeId.ROADMAP,
-      scrollwheel: false,
+      scrollwheel: true,
       styles: style
     };
     //inizialize the map
@@ -898,12 +897,12 @@ export class Map extends React.Component {
       map_options
     );
     //add a custom marker to the map
-    var marker = new google.maps.Marker({
-      position: new google.maps.LatLng($latitude, $longitude),
-      map: this.tripsMap,
-      visible: true,
-      icon: $marker_url
-    });
+    // var marker = new google.maps.Marker({
+    //   position: new google.maps.LatLng($latitude, $longitude),
+    //   map: this.tripsMap,
+    //   visible: true,
+    //   icon: $marker_url
+    // });
 
     //add custom buttons for the zoom-in/zoom-out on the map
     function CustomZoomControl(controlDiv, map) {
